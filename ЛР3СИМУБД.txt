@@ -1,0 +1,124 @@
+часть 2:
+SELECT * FROM турагенство.hotels
+WHERE stars > 3;
+
+SELECT * FROM турагенство.hotels
+WHERE NOT stars = 3;
+
+SELECT * FROM турагенство.hotels
+WHERE NOT country = 'USA' AND stars > 3 OR country = 'Canada';
+
+SELECT * FROM турагенство.hotels
+WHERE number_of_rooms*stars BETWEEN 400 AND 600;
+
+SELECT * FROM турагенство.hotels
+WHERE country IN('Mexico', 'Canada');
+
+SELECT * FROM турагенство.hotels
+WHERE number_of_rooms BETWEEN 80 AND 100;
+
+SELECT * FROM турагенство.hotels
+WHERE address LIKE 'Grow%';
+
+SELECT * FROM турагенство.hotels
+WHERE country IS NULL;
+
+3-я часть:
+
+SELECT * FROM type_of_housing, hotels;
+
+SELECT * FROM type_of_housing, hotels
+WHERE type_of_housing.hotel = hotels.id;
+
+SELECT * FROM type_of_housing, hotels
+WHERE type_of_housing.hotel = hotels.id AND price_night>60;
+
+SELECT * FROM type_of_housing, hotels, tours;
+
+SELECT * 
+FROM type_of_housing
+JOIN hotels;
+
+SELECT * 
+FROM type_of_housing
+JOIN hotels
+ON type_of_housing.hotel = hotels.id;
+
+SELECT * 
+FROM type_of_housing
+JOIN hotels
+ON type_of_housing.hotel = hotels.id
+WHERE NOT hotels.country = 'USA';
+
+SELECT * 
+FROM type_of_housing
+JOIN hotels
+ON type_of_housing.hotel = hotels.id
+JOIN tours;
+
+SELECT * 
+FROM type_of_housing
+LEFT JOIN hotels
+ON type_of_housing.hotel = hotels.id;
+
+SELECT * 
+FROM hotels
+RIGHT JOIN type_of_housing
+ON type_of_housing.hotel = hotels.id;
+
+SELECT name
+FROM hotels
+UNION SELECT name
+FROM tours;
+
+часть 4:
+
+SELECT COUNT(*) FROM clients;
+
+SELECT SUM(number_of_rooms)
+FROM hotels;
+
+SELECT LOWER('Apple');
+SELECT UPPER('Apple');
+
+SELECT NOW();
+SELECT UTC_TIME();
+
+SELECT country, COUNT(*) AS count_of_hotels
+FROM hotels
+Group By country;
+
+SELECT country, city, COUNT(*) AS count_of_hotels
+FROM hotels
+Group By country,city;
+
+SELECT country, COUNT(*) AS count_of_hotels
+FROM hotels
+Group By country
+HAVING NOT country = 'USA';
+
+SELECT MIN(price_night) AS min_price,
+MAX(price_night) AS max_price, AVG(price_night) avg_price
+FROM type_of_housing
+HAVING AVG(price_night) <= 70;
+
+SELECT * FROM турагенство.hotels
+ORDER BY stars;
+
+INSERT hotels(name, address, city, country,phone,description_of_territory, number_of_rooms, swimming_pool, medical_services, spa, stars, distance_to_the_sea) 
+VALUES 
+('Hotel', 'Puskina Street', 'Minsk', 'Belarus', '456462', 'Zbs', 120, TRUE, TRUE, TRUE, 5, 83 );
+
+UPDATE type_of_housing
+SET price_night = price_night + 100;
+
+UPDATE type_of_housing
+SET price_night = price_night + 100
+WHERE description = 'Norm';
+
+DELETE FROM hotels
+WHERE country ='Canada';
+   
+'Hotel', 'Puskina Street', 'Minsk', 'Belarus', '456462', 'Zbs', 120, TRUE, TRUE, TRUE, 5, 83
+
+

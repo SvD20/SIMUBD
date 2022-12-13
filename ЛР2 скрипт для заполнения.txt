@@ -1,0 +1,29 @@
+USE турагенство;
+INSERT hotels(name, address, city, country,phone,description_of_territory, number_of_rooms, swimming_pool, medical_services, spa, stars, distance_to_the_sea) 
+VALUES 
+('CoolHotel', 'Grow Street', 'New Yourk', 'USA', '456456', 'Yamki', 89, TRUE, TRUE, TRUE, 5, 50 ),
+('BestHotel', 'Pow Street', 'Texas', 'Mexico', '856456', 'Norm', 98, TRUE, FALSE, TRUE, 4, 65 ),
+('BadHotel', 'Green Street', 'Seattle', 'USA', '337456', 'rovno', 29, FALSE, TRUE, TRUE, 2, 150), 
+('NewHotel', 'Dasko Street', 'Ochlahoma', 'USA', '943456', 'nerovno', 99, TRUE, TRUE, FALSE, 4, 250 ),
+('BasicHotel', 'Sony Street', 'Toronto', 'CANADA', '4539256', 'psdz nerovno', 37, FALSE, TRUE, TRUE, 3, 120 );
+INSERT type_of_housing(type_of_house, housing_category, hotel, description, price_night) 
+VALUES 
+('BigHouse', 'HighCategory', 7, 'Norm', 65 ),
+('SmallHouse', 'MediumCategory', 6, 'Nenorm', 55 ),
+('Camping', 'LowCategory', 8, 'Good', 95 ),
+('Yahta', 'HighCategory', 9, 'Bad', 18 ),
+('Place', 'MediumCategory', 1, 'Norm', 23 );
+INSERT clients(surname, name, patronymic, passport_details, date_of_birth, address, city, phone) 
+VALUES 
+('Danilov', 'Svyatoslav', 'Fedorovich', 'HB78678', '2001-11-20', 'Belarus', 'Mozyr','475964'),
+('Pupkin', 'Vasya', 'Ivanych', 'HB98669', '2003-11-21', 'Belarus', 'Minsk','5784854'),
+('Lupkin', 'Petya', 'Gregorych', 'HB48329', '2002-12-20', 'Belarus', 'Gomel','6477564'),
+('Dupkin', 'Grisha', 'Vasylich', 'HB43578', '2000-03-10', 'Belarus', 'Brest','483492'),
+('Zalupkin', 'Ashot', 'Ivanych', 'HB782398', '1996-01-10', 'Belarus', 'Grodno','393845');
+INSERT vouchers(client, type_of_housing, aririval_date, departure_date, children, medical_insurance, number_of_persons, price) 
+VALUES 
+(1, 1, '2001-11-20', '2001-11-20', TRUE, TRUE,4,670),
+(2, 2, '2003-11-21', '2001-11-20', TRUE, FALSE,5,800),
+(3, 3, '2002-12-20', '2001-11-20', TRUE, FALSE,6,900),
+(4, 4, '2000-03-10', '2001-11-20', FALSE, TRUE,7,1000),
+(5, 5, '1996-01-10', '2001-11-20', FALSE, TRUE,1,160);

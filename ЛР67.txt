@@ -1,0 +1,51 @@
+Задание1.
+db.towns.insert({name: "Punxsutawney", populatiuon: 6200, last_sensus: ISODate("2022-01-31"), famous_for: [""], mayor: {name: "Jim Wehrle"} })
+db.towns.insert({name: "New York", populatiuon: 22200000, last_sensus: ISODate("2022-07-31"), famous_for: ["status of liberty", "food"], mayor: {name: "Michael Bloomberg", party: "I"} })
+db.towns.insert({name: "Portland", populatiuon: 528000, last_sensus: ISODate("2022-07-20"), famous_for: ["beer", "food"], mayor: {name: "Sam Adams", party: "D"}})
+
+db.towns.find({"mayor.party": "I"}, {populatiuon: 0, last_sensus: 0, famous_for: 0})
+db.towns.find({"mayor.party": {$exists: false}}, {populatiuon: 0, last_sensus: 0, famous_for: 0})
+
+Задание2.
+1) 
+fn = function() { return this.gender=="f"; }
+   db.unicorns.find(fn)
+   db.unicorns.find("this.gender=='f'") // не работает из методы
+2)
+var cursor = db.unicorns.find();null;
+cursor.limit(2).sort({name: 1});null;
+3)
+cursor.forEach(function(obj){
+ print(obj.name);})
+4) содержание из лр5
+
+Задание3.
+db.unicorns.find({weight: {$gt:500,$lt:600}}).count(true)
+
+Задание4.
+var cursor = db.unicorns.find();null;
+cursor.forEach(function(obj){
+ print(obj.loves);})
+
+Задание5.
+db.unicorns.aggregate({"$group":{_id:"$gender",count:{$sum:1}}})
+
+Задание6.
+db.unicorns.save({name: 'Barny', loves: ['grape'], weight: 340, gender: 'm'}) //не работает
+
+Задание7.
+db.users.update({name : "Ayna"}, {name : "Ayna", weight : 800, vampires : 51},{upsert: true})
+
+db.unicorns.update({name : "Barny"}, {$inc: {weight:5}})
+
+
+
+
+
+  
+
+
+   
+
+
+
